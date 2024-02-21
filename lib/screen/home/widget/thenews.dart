@@ -7,6 +7,7 @@ class TheNews extends StatelessWidget {
   List<OneNew> listnews = [
     OneNew(
       name: 'Title',
+      
       image: ImagesApp.entertaiment,
     ),
     OneNew(
