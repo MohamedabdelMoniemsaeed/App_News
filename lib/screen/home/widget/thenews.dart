@@ -1,6 +1,7 @@
 import 'package:appnews/images/images.dart';
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class TheNews extends StatelessWidget {
   TheNews({super.key});
   List<OneNew> listnews = [
@@ -31,18 +32,19 @@ class TheNews extends StatelessWidget {
     return Expanded(
       child: ListView.builder(
         physics: const BouncingScrollPhysics(),
-        itemCount: 5,
+        itemCount: listnews.length,
         itemBuilder: (context, index) => listnews[index],
       ),
     );
   }
 }
 
+// ignore: must_be_immutable
 class OneNew extends StatelessWidget {
   String name;
   String image;
   OneNew({super.key, required this.name, required this.image});
-  
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -50,7 +52,7 @@ class OneNew extends StatelessWidget {
       alignment: Alignment.center,
       margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
       width: MediaQuery.of(context).size.width,
-      height: MediaQuery.of(context).size.height * .5,
+      // height: VisualDensity.minimumDensity,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.end,
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
