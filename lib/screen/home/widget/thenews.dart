@@ -7,7 +7,6 @@ class TheNews extends StatelessWidget {
   List<OneNew> listnews = [
     OneNew(
       name: 'Title',
-      
       image: ImagesApp.entertaiment,
     ),
     OneNew(
@@ -30,13 +29,15 @@ class TheNews extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: ListView.builder(
-        physics: const BouncingScrollPhysics(),
-        itemCount: listnews.length,
-        itemBuilder: (context, index) => listnews[index],
-      ),
-    );
+    return SliverList(
+        delegate: SliverChildBuilderDelegate(
+            childCount: listnews.length, (context, index) => listnews[index]));
+    // ListView.builder(
+    //   shrinkWrap: true,
+    //   physics: const NeverScrollableScrollPhysics(),
+    //   itemCount: listnews.length,
+    //   itemBuilder: (context, index) => listnews[index],
+    // );
   }
 }
 

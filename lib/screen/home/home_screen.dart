@@ -28,9 +28,10 @@ class HomeScreen extends StatelessWidget {
           ],
         ),
       ),
-      body: Column(
-        children: [
-          CarouselSliderApp(),
+      body: CustomScrollView(
+        physics: const BouncingScrollPhysics(),
+        slivers: [
+          SliverToBoxAdapter(child: CarouselSliderApp()),
           TheNews(),
         ],
       ),
